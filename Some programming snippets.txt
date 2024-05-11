@@ -1,0 +1,161 @@
+#Some programming
+
+
+#1) The length of a string the fancy way
+
+str1 = input('Enter a string: ')
+i = 0
+for letter in str1:
+    i += 1
+print(f'The length of the string is {i}, {str1}')
+
+
+#2) Print the letter at a certain position in any string
+
+str1 = input("Enter a string: ")
+if len(str1) == 0:
+    print("Empty string")
+position = int(input("Enter a position: "))
+if position < 0 or position > len(str1) - 1:
+    print("Invalid position")
+else:
+    print(str1[position])
+
+
+#3) Reverse a string the HARD way
+
+str1 = input('Enter a string: ')
+while str1 == '':
+    str1 = input('Empty string, try again. ')
+str2 = ''
+i = 1
+while i <= len(str1):
+    str2 += str1[-i]
+    i += 1
+print(str2)
+
+
+#4) Print the letters that have even indexes in a string
+
+str1 = input("Enter a string: ")
+if len(str1) < 2:
+    print(str1) 
+else:
+    length = len(str1)
+    i = 2
+    while length - i >= 0:
+        print(str1[i - 1], end = '')
+        i += 2
+
+
+#5) Checking if a string only contains digits, the HARD way
+
+string1 = input('Enter a string: ')
+if string1 == '': 
+    print('You did not enter a string, but no problem, I will use a default string')
+for sign in string1:
+    if sign in '0123456789':
+        bool1 = True
+    else:
+        bool1 = False
+        break
+if bool1:
+    print('There were only digits in the string')
+else: print('The string contains at least one non-digit character')
+
+
+#6) Removing a character at a certain position in a string
+
+str1 = input('Enter a string: ')
+position = int(input('Enter the position: ')) 
+if position < 0 or position > len(str1) - 1:
+    print('Invalid position')  
+else:
+    print(f'The character at position {position} is {str1[position]}') 
+    str2 = str1[:position] + str1[position + 1:]
+    print(str2)
+
+
+#7) Too see if a string starts with a certain prefix
+
+str1 = input('Enter a string: ')
+prefix = input('Enter a prefix: ')
+if len(prefix) > len(str1):
+    print(f'The prefix is longer than the string.')
+    print(False) 
+elif str1.startswith(prefix):
+    print(f'The string starts with the prefix {prefix}.')
+    print(True)
+elif not str1.startswith(prefix):
+    print(f'The string does not start with the prefix {prefix}.')
+    print(False)
+else:
+    print(False)
+
+
+#8) To see if a string ends with a certain suffix
+
+str1 = input('Enter a string: ')
+suffix = input('Enter a suffix: ')
+if len(suffix) > len(str1):
+    print('The suffix is longer than the string.')
+    print(False)
+elif str1.endswith(suffix):
+    print('The string ends with the suffix.')
+    print(True)
+else:
+    print('The string does not end with the suffix.')
+    print(False)
+
+
+#9) Reverse words + swapcase
+
+str1 = input('Enter one-word strings. Comma signs between the strings: ')
+words = str1.split(',')
+for word in words:
+    word = word.strip()[::-1]
+    for letter in word:
+        letter = letter.swapcase()
+        print(letter, end='')
+    print()
+
+
+#10) Probe to see which letters are present in a string and how many 'instances'
+
+from collections import Counter
+
+str1 = input("Enter a string: ")
+counter = Counter(str1)
+
+doublets = sum(count // 2 for count in counter.values())
+letters_involved = len([count for count in counter.values() if count > 1])
+
+print(f'The amount of doublets in total is {doublets} and the letters involved are {letters_involved}.')
+print("Letters that appear twice or more:")
+for letter, count in counter.items():
+    if count > 1:
+        print(letter)
+
+
+#11)
+
+str1 = input('Enter one - word strings with commas in between: ').lower().strip()
+check_list = []
+final_list = []
+
+for string in str1:
+    check_list.append(string)
+    
+for word in check_list:
+    word = sorted(word)
+    final_list += word
+
+final_list = ''.join(final_list)
+print(final_list)
+
+
+
+
+
+
+   
